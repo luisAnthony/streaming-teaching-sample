@@ -1,0 +1,89 @@
+/*@import url(https://fonts.googleapis.com/css?family=Roboto:300);*/
+
+.login-page {
+  width: 360px;
+  padding: 2% 0 0;
+  margin: auto;
+  padding-top: 160px;
+}
+.login-form {
+  position: relative;
+  z-index: 1;
+  background: #FFFFFF;
+  max-width: 360px;
+  margin: 0 auto 100px;
+  padding: 25px;
+  text-align: center;
+  box-shadow: 10px 10px 30px 0 rgba(0, 0, 0, 0.5), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.login-form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #e2e0e0;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+  
+  .login-form button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #4a2784;
+    width: 100%;
+    border: 0;
+    border-radius: 4px;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+  }
+  .login-form button:hover,
+  .login-form button:active,
+  .login-form button:focus {
+    background: #6a5191;
+  }
+
+  .login-form p{
+    color: lightgrey;
+  }
+
+  .form-group{
+    position:relative;
+  }
+
+  .form-group input[type=text]{
+    padding-left: 40px;
+  }
+  
+  .form-group input[type=password]{
+    padding-left: 40px;
+  }
+  
+  .form-group i{
+    position: absolute;
+    left:0;
+    top:1px;
+    padding: 9px 8px;
+    transition:.3s;
+  }
+  
+  .form-group input[type=text]:focus + i{
+    color:dodgerblue;
+  }
+  
+  .form-group input[type=password]:focus + i{
+    color:dodgerblue;
+  } 
+
+  .headerLogin{
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;   
+    font-size: 30px;
+    padding-bottom: 15px;
+  }

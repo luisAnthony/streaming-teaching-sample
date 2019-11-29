@@ -1,0 +1,28 @@
+.vid-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    background: #FFFFFF;
+    justify-items: stretch;
+}
+
+.vid-icon-div {
+    justify-self: end;
+    width: 50%;
+}
+
+.vid-icon-div mat-icon {
+    position: relative;
+    float: right;
+    margin-bottom: 10px;
+}
+
+.vid-title-div {
+    width: 50%;
+}
+
+.vid-title-div span {
+    width: 100%;
+    font-size: 16px;
+}
+

@@ -1,0 +1,41 @@
+<div *ngIf="isLoggedIn; else loggedOut">
+    登入的帳號是： {{roles}}.
+  </div>
+  
+  <ng-template #loggedOut>
+    <div class="login-page">
+      <div class="login-form">
+        <h1 class="headerLogin">帳號登入</h1>
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+          <div class="form-group">
+            <!--label for="username">Username</label-->
+            <input type="text" placeholder="User Name" class="form-control" name="username" [(ngModel)]="form.username" #username="ngModel"
+              required />
+            <i class="fa fa-user fa-lg fa-fw" aria-hidden="true"></i>  
+            <div *ngIf="f.submitted && username.invalid">
+              <div *ngIf="username.errors.required">請輸入帳號</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <!--label for="password">Password</label-->
+            <input type="password" placeholder="Password" class="form-control" name="password" [(ngModel)]="form.password" #password="ngModel"
+              required minlength="6" />
+            <i class="fa fa-lock fa-lg fa-fw" aria-hidden="true"></i>
+            <div *ngIf="f.submitted && password.invalid">
+              <div *ngIf="password.errors.required">忘了輸入密碼？</div>
+              <div *ngIf="password.errors.minlength">密碼最少要8位數</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <button>登入</button>
+            <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
+              登入失敗: {{errorMessage}}
+            </div>
+          </div>
+        </form>
+        <hr />
+        <p>還沒有帳號嗎？</p>
+        <a [routerLink]="['/register']" class="btn btn-success">注冊</a>
+      </div>
+    </div>  
+  </ng-template>

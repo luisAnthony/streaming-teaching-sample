@@ -1,0 +1,145 @@
+.example-container {
+  position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: calc(100vh - 60px);
+}
+.example-radio-group {
+  display: block;
+  border: 1px solid #555;
+  margin: 20px;
+  padding: 10px;
+}
+.sidenav-container {
+  display: grid;
+  grid-template-rows: auto 160px;
+  grid-template-areas:
+    "main"
+    "info";
+  height: calc(100vh - 60px);
+  margin: 0;
+}
+.sidenav-main {
+  grid-area: main;
+  background-color: #231f30;
+  overflow-y: auto;
+}
+.sidenav-info {
+  grid-area: info;
+  background-color: #19171c;
+}
+.title-gradient {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #8eff7f;
+}
+.btn-setting {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+}
+.sidenav-info > .flex-container {
+  color: #aaa;
+  font-size: .8em;
+}
+.sidenav {
+  grid-area: side;
+  margin: 0;
+  padding: 0;
+}
+.main-container {
+  justify-content: center;
+  align-items: start;
+  padding: 10px 50px;
+}
+.video-list {
+  padding: 5px;
+  margin: 5px;
+  border-radius: 5px;
+  color: white;
+  background-color: rgba(255, 255, 255, 0);
+  transition: background-color .5s ease-in-out;
+}
+.video-list:hover {
+  background-color: rgba(255, 255, 255, .1);
+}
+.video-preview-subtitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.video-preview-subtitle > small {
+  color: gray; 
+}
+.video-preview-subtitle > div {
+  border: 1px #8eff7f solid;
+  padding: 3px;
+  border-radius: 4px;
+  color: #8eff7f;
+  cursor: pointer;
+}
+.medal-section {
+  border-bottom: .2px #ccc solid;
+  border-left: .2px #ccc solid;
+}
+.medal {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 235px;
+}
+.medal > img {
+  width: auto;
+  height: 150px;
+}
+.medal-alarm {
+  color: darkred;
+}
+.medal-info {
+  font-size: .5em;
+  color: gray;
+  margin: auto;
+  padding: 15px;
+}
+.medal-tooltip {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+}
+.quest-hint {
+  background-color: gray;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px 0 0 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.timer-hint {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+.stream-container {
+	padding: 0;
+}
+
+.main-stream-manager{
+  position:absolute;
+  top:10px;
+  left: 650px; 
+  width: 91%;
+  height: auto;  
+}

@@ -1,0 +1,348 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+* {
+  font-family: sans-serif;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.flex-container {
+  display: -webkit-flex;
+  display: flex;
+  margin: auto;
+}
+.flex-wrap-container {
+  display: -webkit-flex;
+  display: flex;
+  margin: auto;
+  flex-wrap: wrap;
+}
+.flex-acc-container {
+  display: -webkit-flex;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: auto;
+}
+.flex-alc-container {
+  display: -webkit-flex;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  margin: auto;
+}
+.flex-arc-container {
+  display: -webkit-flex;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+  margin: auto;
+}
+.flex-col-container {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: column;
+}
+.flex-row-container {
+  display: -webkit-flex;
+  display: flex;
+  flex-direction: row;
+}
+.flex-btw-container {
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-between;
+}
+.flex-1 {
+  -webkit-flex: 1;
+          flex: 1;
+}
+.flex-2 {
+  -webkit-flex: 2;
+          flex: 2;
+}
+.flex-3 {
+  -webkit-flex: 3;
+          flex: 3;
+}
+.flex-4 {
+  -webkit-flex: 4;
+          flex: 4;
+}
+.flex-5 {
+  -webkit-flex: 5;
+          flex: 5;
+}
+.flex-6 {
+  -webkit-flex: 6;
+          flex: 6;
+}
+.flex-7 {
+  -webkit-flex: 7;
+          flex: 7;
+}
+.flex-8 {
+  -webkit-flex: 8;
+          flex: 8;
+}
+.flex-9 {
+  -webkit-flex: 9;
+          flex: 9;
+}
+.flex-10 {
+  -webkit-flex: 10;
+          flex: 10;
+}
+.flex-11 {
+  -webkit-flex: 11;
+          flex: 11;
+}
+.flex-12 {
+  -webkit-flex: 12;
+          flex: 12;
+}
+.flex-13 {
+  -webkit-flex: 13;
+          flex: 13;
+}
+.flex-14 {
+  -webkit-flex: 14;
+          flex: 14;
+}
+.flex-15 {
+  -webkit-flex: 15;
+          flex: 15;
+}
+.flex-16 {
+  -webkit-flex: 16;
+          flex: 16;
+}
+.flex-17 {
+  -webkit-flex: 17;
+          flex: 17;
+}
+.flex-18 {
+  -webkit-flex: 18;
+          flex: 18;
+}
+.flex-19 {
+  -webkit-flex: 19;
+          flex: 19;
+}
+.flex-20 {
+  -webkit-flex: 20;
+          flex: 20;
+}
+.flex-init-20,.flex-init-25,.flex-init-30,.flex-init-35,.flex-init-40,.flex-init-50,.flex-init-60,.flex-init-75,.flex-init-100,.flex-init-120,.flex-init-150,.flex-init-200,.flex-init-250,.flex-init-300.flex-init-500 {
+  -webkit-flex: initial;
+          flex: initial;
+  display: flex;
+}
+.flex-init-20 {
+  width: 20px;
+}
+.flex-init-25 {
+  width: 25px;
+}
+.flex-init-30 {
+  width: 30px;
+}
+.flex-init-35 {
+  width: 35px;
+}
+.flex-init-40 {
+  width: 40px;
+}
+.flex-init-50 {
+  width: 50px;
+}
+.flex-init-60 {
+  width: 60px;
+}
+.flex-init-75 {
+  width: 75px;
+}
+.flex-init-100 {
+  width: 100px;
+}
+.flex-init-120 {
+  width: 120px;
+}
+.flex-init-150 {
+  width: 150px;
+}
+.flex-init-200 {
+  width: 200px;
+}
+.flex-init-250 {
+  width: 250px;
+}
+.flex-init-300 {
+  width: 300px;
+}
+.flex-init-500 {
+  width: 500px;
+}
+.flex-none-20,.flex-none-25,.flex-none-30,.flex-none-35,.flex-none-40,.flex-none-50,.flex-none-60,.flex-none-75,.flex-none-90,.flex-none-100,.flex-none-120,.flex-none-150,.flex-none-200,.flex-none-250 {
+  -webkit-flex: none;
+          flex: none;
+  display: flex;
+}
+.flex-none-15 {
+  width: 15px;
+}
+.flex-none-25 {
+  width: 25px;
+}
+.flex-none-30 {
+  width: 30px;
+}
+.flex-none-40 {
+  width: 40px;
+}
+.flex-none-50 {
+  width: 50px;
+}
+.flex-none-60 {
+  width: 60px;
+}
+.flex-none-75 {
+  width: 75px;
+}
+.flex-none-90 {
+  width: 90px;
+}
+.flex-none-100 {
+  width: 100px;
+}
+.flex-none-120 {
+  width: 120px;
+}
+.flex-none-150 {
+  width: 150px;
+}
+.flex-none-200 {
+  width: 200px;
+}
+.flex-none-250 {
+  width: 250px;
+}
+.flex-none-300 {
+  width: 300px;
+}
+.p3 {
+  padding: 3px;
+}
+.p5 {
+  padding: 5px;
+}
+.p7 {
+  padding: 7px;
+}
+.p10 {
+  padding: 10px;
+}
+.m3 {
+  margin: 3px;
+}
+.m5 {
+  margin: 5px;
+}
+.m7 {
+  margin: 7px;
+}
+.m10 {
+  margin: 10px;
+}
+.pw3 {
+  padding: 0 3px;
+}
+.pw5 {
+  padding: 0 5px;
+}
+.pw7 {
+  padding: 0 7px;
+}
+.pw10 {
+  padding: 0 10px;
+}
+.pw15 {
+  padding: 0 15px;
+}
+.mw3 {
+  margin: 0 3px;
+}
+.mw5 {
+  margin: 0 5px;
+}
+.mw7 {
+  margin: 0 7px;
+}
+.mw10 {
+  margin: 0 10px;
+}
+.mw15 {
+  margin: 0 15px;
+}
+.ph3 {
+  padding: 3px 0;
+}
+.ph5 {
+  padding: 5px 0;
+}
+.ph7 {
+  padding: 7px 0;
+}
+.ph10 {
+  padding: 10px 0;
+}
+.ph15 {
+  padding: 15px 0;
+}
+.mh3 {
+  margin: 3px 0;
+}
+.mh5 {
+  margin: 5px 0;
+}
+.mh7 {
+  margin: 7px 0;
+}
+.mh10 {
+  margin: 10px 0;
+}
+.mh15 {
+  margin: 15px 0;
+}
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-button {
+  width:0;
+  height: 0;
+}
+::-webkit-scrollbar-track-piece {
+  background: rgba(0,0,0,0);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(33, 33, 33, .4);
+}
+p { 
+  margin: .5em 0;
+}
+.title-gradient {
+  background: linear-gradient(0deg, rgba(101, 101, 101, .3)0%, rgba(230, 230, 230, .3)50%); 
+  background: -moz-linear-gradient(0deg, rgba(101, 101, 101, .3)0%, rgba(230, 230, 230, .3)50%); 
+  background: -webkit-linear-gradient(0deg, rgba(101, 101, 101, .3)0%, rgba(230, 230, 230, .3)50%); 
+  background: -o-linear-gradient(0deg, rgba(101, 101, 101, .3)0%, rgba(230, 230, 230, .3)50%);
+}
+
+router-outlet ~ * {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}

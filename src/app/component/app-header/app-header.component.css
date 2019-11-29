@@ -1,0 +1,9 @@
+.flex-btw-container {
+  width: 100vw;
+  height: 60px;
+  background: #29134e;
+  color: white;
+}
+.flex-btw-container > div {
+  padding: 0 10px;
+}

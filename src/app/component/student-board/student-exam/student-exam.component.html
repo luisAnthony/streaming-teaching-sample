@@ -1,0 +1,110 @@
+<!--div style="text-align:center">
+    <h1>Examination Page!</h1>
+</div>
+<div>
+    <button (click)="onClickButton()"> Click here </button>
+</div-->
+<div class="exam-form">
+    <div class="row">
+        <div class="col-6 text-right" style="overflow-wrap: normal;">
+            <mat-icon (click)="closeConfirmation()" style="font-size: 50px">close</mat-icon>
+        </div>        
+        <div class="col-6">
+            <h3>線上測驗</h3>
+        </div>
+        <hr/>
+        <div class="col-6 text-right" style="justify-items: right;">
+            <div class="row text-right" style = "padding-bottom: 5px;">
+                選擇測驗類型 : 
+                <select [(ngModel)] = "examType_ID" 
+                        (change)    = "updateExamTypeName(examType_ID)" 
+                        style       = "width: 200px; height: 3rem;  font-size: 16px;" 
+                        [disabled]  = "isStartExam" 
+                        class       = "select-type-subj">
+                    <option *ngFor="let exmType of examTypeList" [value]="exmType.id">{{exmType.name | i18nSelect: examTypeMap}}</option>
+                </select>
+            </div>
+            <div class="row text-right"  style = "padding-top: 5px;">
+                選擇測驗主題 : 
+                <select [(ngModel)] = "examSubj_ID" 
+                        (change)    = "updateExamSubjName(examSubj_ID)" 
+                        style       = "width: 200px; height: 3rem; font-size: 16px;" 
+                        [disabled]  = "isStartExam" 
+                        class       = "select-type-subj">
+                    <option *ngFor="let exmSubj of examSubjList" [value]="exmSubj.id">{{exmSubj.name | i18nSelect: examSubjectMap}}</option>
+                </select>  
+            </div>       
+        </div>
+    </div>
+
+    <div id="quiz">
+        <h2 class="text-center font-weight-normal">{{exmTypeName | i18nSelect: examTypeMap}} - {{exmSubjName | i18nSelect: examSubjectMap}}</h2>
+        <div style="text-align: center">
+            <button class="btn-start-exam" (click)="startExam()" [disabled] = "isStartExam">開始測驗</button>  
+        </div>             
+        <hr />
+        
+        <div *ngIf="mode=='quiz' && isStartExam">
+            <div *ngFor="let question of filteredQuestions;">
+                <div class="badge badge-info">Question {{pager.index + 1}} of {{pager.count}}.</div>
+                
+                <h3 class="font-weight-normal">{{pager.index + 1}}.
+                <span [innerHTML]="question.description"></span>
+                </h3>
+                <div class="row text-left options">
+                <div class="col-6" *ngFor="let option of question.choices">
+                    <div class="option">
+                    <label class="font-weight-normal" [attr.for]="option.id">
+                        <input id="{{option.id}}" type="checkbox" [(ngModel)]="option.selected" (change)="onSelect(question, option);" /> {{option.choiceDescription}}
+                    </label>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <hr />
+            <div class="text-center">
+                <button class="btn btn-default" *ngIf="config.allowBack" (click)="goTo(0);">第一題</button>
+                <button class="btn btn-default" *ngIf="config.allowBack" (click)="goTo(pager.index - 1);">上一題</button>
+                <button class="btn btn-primary" (click)="goTo(pager.index + 1);">下一題</button>
+                <button class="btn btn-default" *ngIf="config.allowBack" (click)="goTo(pager.count - 1);">最後一題</button>
+                <!--<pagination *ngIf="config.showPager" direction-links="false" total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged()"></pagination>-->
+            </div>
+        </div>
+        
+        <div class="row text-center" *ngIf="mode=='review'">
+            <div class="col-4 cursor-pointer" *ngFor="let question of examQueList; let index = index;">
+                <div (click)="goTo(index)" class="p-3 mb-2 {{ isAnswered(question) == 'Answered'? 'bg-info': 'bg-warning' }}">{{index + 1}}. {{ isAnswered(question) }}</div>
+            </div>
+        </div>
+        <div class="result" *ngIf="mode=='result'">
+            <h2>答對題數: {{resultScore}} 題</h2>
+            <div *ngFor="let question of examQueList; let index = index">
+                <div class="result-question" style="padding-left: 20px;">
+                    <h5>{{index + 1}}. {{question.description}}</h5>
+                    <div class="row" style="padding-left: 30px;">
+                        <div class="col-6" *ngFor="let Option of question.choices">
+                            <input id="{{Option.id}}" type="checkbox" disabled="disabled" [(ngModel)]="Option.selected" /> {{Option.choiceDescription}}
+                        </div>
+                    </div>
+                <div class="p-1 m-2 alert {{ isCorrect(question) === '對'? 'alert-success': 'alert-danger'}}">你答 {{isCorrect(question)}} 了.</div>
+            </div>
+        </div>
+            <h4 class="alert alert-info text-center">你可以隨時離開這個畫面.</h4>
+    </div>
+            <hr />
+            <div *ngIf="mode!='result'">
+                <button class="btn btn-warning" (click)="mode = 'quiz'">題目</button>
+                <button class="btn btn-info" (click)="mode = 'review'">複審</button>
+                <button class="btn btn-primary" (click)="onSubmit();">完成測驗</button>
+            </div>
+    </div>
+
+    <div style="text-align: center;"> 
+        <button id="stud-db-icon" mat-icon-button (click)="backToMainBoard()">
+            <mat-icon>dashboard</mat-icon>
+        </button>
+        <label for="stud-db-icon">
+            回到 學生面板
+        </label>
+    </div>
+</div>

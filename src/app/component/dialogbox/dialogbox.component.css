@@ -1,0 +1,27 @@
+/*@import url(https://fonts.googleapis.com/css?family=Roboto:300);*/
+
+.mat-dialog-title,
+.mat-dialog-content,
+.mat-dialog-actions button {
+    font-family: "Roboto", sans-serif;
+}
+
+.div-padding {
+    padding-bottom: 30px;
+}
+
+.mat-dialog-actions {
+    justify-content: flex-end;
+    justify-items: flex-end;
+}
+
+.mat-dialog-actions button{
+    background-color:  #4a2784;
+    color:  #FFFFFF;
+}
+
+.mat-dialog-actions button:hover,
+.mat-dialog-actions button:active,
+.mat-dialog-actions button:focus {
+  background: #6a5191;
+}

@@ -1,0 +1,29 @@
+
+    <h1 mat-dialog-title>{{title}}</h1>
+
+    <div mat-dialog-content style="white-space: pre-line;">
+        {{message}}
+    </div>
+    <div class="div-padding"></div>
+    <mat-divider></mat-divider>
+    <div mat-dialog-actions>
+        <button *ngIf="(dialogType == 'CONFIRM') || (dialogType == 'WARN')" mat-raised-button [mat-dialog-close]="true">{{proceedCaption}}</button>
+        <button *ngIf="dialogType != 'WARN'" mat-raised-button
+                (click)="close()">{{btnCaption}}
+        </button>        
+    </div>  
+
+<!--div class="dialog-container">
+    <div class="header-dialog">
+        <h1>{{title}}</h1>
+    </div>
+    <div class="dialog-content">
+        <p>{{message}}</p> ()
+    </div>
+    <hr/>
+    <div class="dialog-actions">
+        <button class="dialog-button"
+                (click)="close()">{{btnCaption}}
+        </button>
+    </div>  
+</div-->

@@ -1,0 +1,106 @@
+/*@import url(https://fonts.googleapis.com/css?family=Roboto:300);*/
+
+.signup-page {
+    width: 360px;
+    padding: 2% 0 0;
+    margin: auto;
+    padding-top: 120px;
+  }
+  .signup-form {
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    border-radius: 4px;
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 10px 10px 30px 0 rgba(0, 0, 0, 0.5), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  }
+  .signup-form input{
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #e2e0e0;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+
+  .signup-form select{
+    font-family: "Roboto", sans-serif;
+    outline: 0;
+    background: #e2e0e0;
+    border: 0;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+
+  .signup-form button {
+    font-family: "Roboto", sans-serif;
+    text-transform: uppercase;
+    outline: 0;
+    background: #4a2784;
+    width: 100%;
+    border: 0;
+    border-radius: 4px;
+    padding: 15px;
+    color: #FFFFFF;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 ease;
+    cursor: pointer;
+  }
+  .signup-form button:hover,
+  .signup-form button:active,
+  .signup-form button:focus {
+    background: #6a5191;
+  }
+
+  .signup-form p{
+    color: darkgray;
+  }  
+
+  .form-group option {
+    color: rgba(0, 0, 0, 0.5);
+  }  
+
+  .form-group select:required:invalid,
+  .form-group option[value=""][disabled]{
+    color: grey;
+  }
+
+  .form-group input[type=email],
+  .form-group input[type=text],
+  .form-group input[type=password],
+  .form-group select{
+    padding-left: 40px;
+  }  
+  
+  .form-group{
+    position:relative;
+  }
+  
+  .form-group i{
+    position: absolute;
+    left:0;
+    top:1px;
+    padding: 9px 8px;
+    transition:.3s;
+  }
+  
+  .form-group input[type=text]:focus + i,
+  .form-group input[type=email]:focus + i,
+  .form-group input[type=password]:focus + i,
+  .form-group select:focus + i{
+    color:dodgerblue;
+  }  
+  
+  .headerSignup{
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-size: 30px;
+    padding-bottom: 15px;
+  }

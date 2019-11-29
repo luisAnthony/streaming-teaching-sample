@@ -1,0 +1,134 @@
+.container {
+    position: absolute;
+    top: 5px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    height: calc(100vh - 60px);
+  }
+
+  .snv-holder {
+    left: 0;
+    max-width: 600px;  
+    border: none;   
+  }
+
+  .snv-content-holder{   
+    margin-left: 385px;
+  }
+
+  .snv-container {
+    margin: 0;
+  }
+
+.idvh-content-si,
+.idvh-content-sc,
+.idvh-content-st{
+ margin: 2px 4px 2px 2px;
+}
+
+.idvh-content-st {
+    padding-top:25px;
+}
+
+.idvh-content-sc,
+.idvh-content-st{
+    max-height: 280px;
+}
+
+.course-cont,
+.exam-cont{
+    display: flex;
+    flex-direction: column;
+    max-height: 250px;
+    min-width: 100%;
+    overflow-y: auto !important;    
+}
+
+.table-header{
+    text-align: center;
+    font-size: 14px;
+    width: 60px;
+}
+
+.table-row:hover{
+    background: rgb(191, 175, 236);
+    cursor: pointer;
+}
+
+.mat-header-row{
+    height: 35px !important; 
+}
+
+.mat-cell{
+    text-align: center;
+    font-size: 12px;
+    width: 60px;
+}
+
+.mat-table{
+    justify-items: center;
+    max-height: 240px;
+}
+
+.mat-row{
+    height: 35px !important;    
+}  
+
+.drag-container{
+    display: flex;
+    justify-content: space-evenly;    
+    position: absolute;
+    width: 100%;
+}
+
+.snv-main-cont{
+    /*
+    display: grid;
+    grid-template-columns: 500px 500px;
+    grid-template-rows: auto;
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    */
+    display: inline-block;
+    position: relative;
+    width: 100%;
+}
+
+.chart-container {
+    display: block;
+    position: absolute;
+    width: 660px;
+    z-index: 1;
+    height: 380px;
+    margin: 5px;
+}
+
+.chart-container.muuri-item-dragging {
+    z-index: 3;
+  }
+.chart-container.muuri-item-releasing {
+    z-index: 2;
+  }
+.chart-container.muuri-item-hidden {
+    z-index: 0;
+}
+
+.chart-item-content{
+    position: relative;
+    height: 100%;
+}
+
+.chart-content {
+    width: 100%;
+    height: 100%;
+}
+
+.chart-item-content .mat-card {
+    height: 100%;
+}
+
+.ngx-chart-wrap{
+    width: 90%;
+}

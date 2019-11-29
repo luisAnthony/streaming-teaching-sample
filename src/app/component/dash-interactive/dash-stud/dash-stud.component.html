@@ -1,0 +1,141 @@
+<mat-sidenav-container class="container">
+    <mat-sidenav 
+        #sidenav mode="side"
+        opened
+        class="snv-holder">  
+    <div class = "snv-container">
+        <div class="idvh-content-si">
+            <mat-card>
+                <mat-card-header>
+                    <div mat-card-title>個人資訊</div>
+                    <div mat-card-subtitle>
+                        <mat-divider></mat-divider>
+                        <div style="padding-top: 10px;">
+                            <span> 學生編號    : </span> {{studentObj.id}}   <br/>
+                            <span> 學生姓名  : </span> {{studentObj.name}} <br/>
+                            <span> 注冊日期 : </span> {{studentObj.date}} <br/>
+                            <span> 課程數  : </span> {{studentObj.count}}                           
+                        </div>
+                     </div>
+                </mat-card-header>
+             </mat-card>     
+        </div>
+        <div class="idvh-content-sc">
+            <mat-card>
+                <mat-card-header>
+                    <div mat-card-title>課程數</div>    
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="course-cont mat-elevation-z8">
+                        <table #courseTable mat-table [dataSource]="studCourse">
+                            <ng-container matColumnDef="id">
+                                <th mat-header-cell *matHeaderCellDef class="table-header"> 課程編號 </th>
+                                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="name">
+                                <th mat-header-cell *matHeaderCellDef class="table-header"> 課程名稱 </th>
+                                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="count">
+                                <th mat-header-cell *matHeaderCellDef class="table-header"> 測驗次數 </th>
+                                <td mat-cell *matCellDef="let element"> {{element.count}} </td>
+                            </ng-container>                              
+                            <tr mat-header-row *matHeaderRowDef="courseColumns; sticky: true"></tr>
+                            <tr mat-row *matRowDef="let row; columns: courseColumns;" class="table-row" (click)="updateExamData(row)"></tr>
+                        </table>  
+                    </div>                              
+                </mat-card-content>
+            </mat-card>  
+        </div>
+        <div class="idvh-content-st">
+            <mat-card>
+                <mat-card-header>
+                    <div mat-card-title>測驗資訊</div>    
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="exam-cont mat-elevation-z8">
+                        <table #testTable mat-table [dataSource]="testList">
+                                <ng-container matColumnDef="id">
+                                        <th mat-header-cell *matHeaderCellDef class="table-header"> 編號 </th>
+                                        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+                                    </ng-container>
+                                    <ng-container matColumnDef="name">
+                                        <th mat-header-cell *matHeaderCellDef class="table-header"> 測驗名稱 </th>
+                                        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                                    </ng-container>
+                                    <ng-container matColumnDef="type">
+                                            <th mat-header-cell *matHeaderCellDef class="table-header"> 測驗類型 </th>
+                                            <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+                                        </ng-container>                                    
+                                    <ng-container matColumnDef="score">
+                                        <th mat-header-cell *matHeaderCellDef class="table-header"> 成績 </th>
+                                        <td mat-cell *matCellDef="let element"> {{element.score}} </td>
+                                    </ng-container>    
+                                    <ng-container matColumnDef="date">
+                                            <th mat-header-cell *matHeaderCellDef class="table-header"> 測驗日期 </th>
+                                            <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+                                    </ng-container>                                                        
+                                    <tr mat-header-row *matHeaderRowDef="testColumns; sticky: true"></tr>
+                                    <tr mat-row *matRowDef="let row; columns: testColumns;" class="table-row"></tr>
+                        </table>  
+                    </div>                              
+                </mat-card-content>
+            </mat-card>  
+        </div>    
+    </div>                    
+    </mat-sidenav>
+    <mat-sidenav-content class="snv-content-holder">
+      <div id="snv-content-id" class="drag-container">
+        <div class="snv-main-cont">
+            <div class="chart-container" data-id="1">
+                <div class="chart-item-content">
+                    <mat-card>
+                        <mat-card-header>
+                            <mat-card-title> 圓餅圖 </mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content class="chart-content" fxLayout="row wrap" fxLayoutAlign="center stretch">
+                            <ngx-chartjs #pieChart [data]="pieData" [legend]="legends" type="pie" class="ngx-chart-wrap"></ngx-chartjs>
+                        </mat-card-content>
+                    </mat-card>
+                </div>
+            </div>
+            <div class="chart-container" data-id="2">
+                <div class="chart-item-content">
+                    <mat-card>
+                        <mat-card-header>
+                            <mat-card-title> 折線圖 </mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content class="chart-content" fxLayout="row wrap" fxLayoutAlign="center stretch">
+                            <ngx-chartjs #lineChart [data]="lineData" type="line" class="ngx-chart-wrap"></ngx-chartjs>
+                        </mat-card-content>                    
+                    </mat-card>
+                </div>
+            </div>
+            <div class="chart-container" data-id="3">
+                <div class="chart-item-content">    
+                    <mat-card>
+                        <mat-card-header>
+                            <mat-card-title> 長條圖 </mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content class="chart-content" fxLayout="row wrap" fxLayoutAlign="center stretch">
+                            <ngx-chartjs #barChart [data]="barData" [options]="barOptions" type="bar" class="ngx-chart-wrap"></ngx-chartjs>
+                        </mat-card-content>                    
+                    </mat-card>
+                </div>
+            </div>
+            <div class="chart-container" data-id="4">
+                <div class="chart-item-content">
+                    <mat-card>
+                        <mat-card-header>
+                            <mat-card-title> 雷達圖 </mat-card-title>
+                        </mat-card-header>
+                        <mat-card-content class="chart-content" fxLayout="row wrap" fxLayoutAlign="center stretch">
+                            <ngx-chartjs #polarChart [data]="polarData" type="polarArea" class="ngx-chart-wrap"></ngx-chartjs>
+                        </mat-card-content>                    
+                    </mat-card>
+                </div>
+            </div>
+        </div>  
+     </div>
+    </mat-sidenav-content>    
+</mat-sidenav-container>

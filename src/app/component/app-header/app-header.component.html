@@ -1,0 +1,35 @@
+<div class="flex-btw-container">
+  <div class="flex-1 flex-alc-container">
+    <div class="mw10">       
+      <button mat-icon-button (click)="cacheService.SidenavOpened = !cacheService.SidenavOpened">
+        <mat-icon aria-label="Example icon-button with a heart icon">menu</mat-icon>
+      </button>
+    </div>
+    <mat-icon color="warn"> cast</mat-icon>&nbsp;&nbsp;<h3>串流平台</h3>
+  </div>
+  <div *ngIf="hasUserLoggedIn()" class="flex-1 flex-arc-container">
+    <mat-menu #logMenu="matMenu">
+        <button mat-menu-item (click)="getUserDetails()">
+            <mat-icon>recent_actors</mat-icon>
+            個人檔案
+        </button>
+        <button *ngIf="authName=='admin'" mat-menu-item (click)="browseUploadPage()">
+            <mat-icon>cloud_upload</mat-icon>
+            影片上傳
+        </button>
+        <button *ngIf="authName=='teacher'"  mat-menu-item (click)="browseChartPage()">
+          <mat-icon>insert_chart_outlined</mat-icon>
+          圖表
+        </button>
+        <hr/>        
+        <button mat-menu-item (click)="userLog_out()">
+          <mat-icon>exit_to_app</mat-icon>
+          登出
+        </button>
+    </mat-menu>   
+    <button mat-button [matMenuTriggerFor]="logMenu">
+        <mat-icon>account_circle</mat-icon>
+        {{username}}
+    </button>
+  </div>
+</div>

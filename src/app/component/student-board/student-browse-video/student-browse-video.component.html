@@ -1,0 +1,35 @@
+
+<div class="student-form">
+    <div style="text-align:center">
+        <h1>瀏覽影片</h1>
+    </div>
+    <div class="video-browse-form">
+        <div class="search-div">
+            <mat-form-field class="search-field">
+                <input matInput placeholder="輸入搜尋影片名稱" type="text">
+            </mat-form-field>
+            <button class="search-btn" mat-raised-button color="primary">搜尋</button>
+        </div>
+        <hr/>
+        <div class="video-list" fxLayout="row wrap" fxLayout.xs="column" fxLayoutGap="0.5%" fxLayoutAlign="center">
+            <mat-card class="card-video" *ngFor="let video of videos">
+                <mat-card-title class="video-cat" fxLayout.gt-xs="row" fxLayout.xs="column">
+                    <span fxFlex="100%" style="font-size:2vw">{{video.category}}</span>
+                </mat-card-title>
+                <video width="100%" height="auto" (click)="openVideoPlayer(video.video, video.category)" 
+                    [src]="video.video" [type]="video.type">
+                    Your browser does not support the video tag.
+                </video>
+            </mat-card>
+        </div>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="btn-dashboard">
+        <button id="stud-db-icon" mat-icon-button (click)="backToMainBoard()">
+            <mat-icon>dashboard</mat-icon>
+        </button>
+        <label for="stud-db-icon" (click)="backToMainBoard()">
+            回到 學生面板
+        </label>
+    </div>
+</div>

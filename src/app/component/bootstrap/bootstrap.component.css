@@ -1,0 +1,23 @@
+:host {
+  display: flex;
+  overflow: hidden;
+}
+.grid-container {
+  display: grid;
+  grid-template-rows: 60px auto;
+  grid-template-areas:
+    "header"
+    "main";
+  height: 100vh;
+  margin: 0;
+}
+.grid-header {
+  grid-area: header;
+  display: flex;
+  align-items: center;
+}
+.grid-main {
+  grid-area: main;
+  display: flex;
+  justify-content: center;
+}

@@ -1,0 +1,78 @@
+.student-form{
+    align-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 2% 0 0;
+    margin: auto;
+    position: relative;
+  }
+  .video {
+      width: 100%;
+      margin-bottom: 18%;
+    }
+    .container {
+      min-height: 100%;
+      width: 100%;
+    }
+    .card-video {
+      width: 23%;
+      margin-bottom: 2%;
+    }
+  
+    .search-field {
+      position: relative;
+      float: right;
+    }
+  
+    .search-field input[type=text]{
+      border: none;
+      width: 95%;
+      font-size: 20px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      padding-left: 5px;
+    }
+  
+    .search-btn{
+      margin-right: 20px;
+    }
+  
+    .search-div {
+      display: flex;
+      justify-content: flex-end;
+      vertical-align: middle;
+    }
+  
+    .video-cat{
+      line-height: 50px;
+      text-align: left;
+      vertical-align: middle;
+      width: 100%;
+    }
+  
+    .video-list {
+      padding-top: 20px;
+    }
+
+    .video-browse-form {
+      width: 90%;
+      height: 90%;
+      margin: auto;
+    }
+  
+    hr {
+      width: 99%;
+      margin-left: 10px;
+    }
+
+    .btn-dashboard {
+      text-align: center;
+    }
+
+    .btn-dashboard label:hover,
+    .btn-dashboard label:focus,
+    .btn-dashboard mat-icon:hover,
+    .btn-dashboard mat-icon:focus{
+      cursor: pointer;
+      color: indigo;
+    }

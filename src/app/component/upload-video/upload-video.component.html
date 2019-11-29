@@ -1,0 +1,55 @@
+<h2>影片上傳!</h2>
+<div>
+  <div *ngIf="error">
+    {{ error.message }}
+  </div>
+  <div *ngIf="uploadResponse.status === 'error'">
+    {{ uploadResponse.message }}
+  </div>
+  <div *ngIf="uploadResponse.status === 'progress'">
+
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="uploader">
+
+    <input  id="file-upload" type="file" name="file_upload" accept="video/*" (change)="onFileChange($event)" />
+
+    <label for="file-upload" id="file-drag">
+      <video id="file-video" src="#" hidden>
+          Your browser does not support HTML5 video.
+      </video>
+      <div id="start">
+        <i class="fa fa-download" aria-hidden="true"></i>
+        <div>選擇檔案或拖放至此</div>
+        <div id="notvideo" class="hidden">請選擇一部影片</div>
+        <span id="file-upload-btn" class="btn btn-primary">選擇檔案</span>
+        <p>{{ fileName }}</p>
+      </div>
+      <div *ngIf="proceedUpload">
+        上傳進度
+        <div class="progress" role="progressbar" [style.width.%]="uploadResponse.message" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+          {{uploadResponse.message}}%
+        </div>
+      </div>
+      <hr/>
+      <div *ngIf="uploadResponse.message == '100'">
+          轉檔進度
+          <div class="progress" role="progressbar" [style.width.%]="convertPercentage" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+            {{convertPercentage}}%
+          </div>
+      </div>      
+
+      <!--div id="response" class="hidden">
+        <div id="messages"></div>
+        <progress class="progress" id="file-progress" value="0">
+          <span>0</span>%
+        </progress>
+      </div-->
+    </label>    
+
+    <div id="centerBtn">
+      <button type="submit" class="btn btn-primary">開始上傳</button>
+    </div>
+
+  </form>
+</div>

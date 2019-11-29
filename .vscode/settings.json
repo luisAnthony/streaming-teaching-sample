@@ -1,0 +1,28 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/*.spec.ts": true,
+    ".vscode": true,
+    "**/.gitignore": true,
+    "e2e": true,
+    "node_modules": true,
+    "typings": true,
+    "**/polyfills.ts": true,
+    "**/test.ts": true,
+    "**/tsconfig.spec.json": true,
+    "**/tsconfig.app.json": true,
+    "**/typings.d.ts": true,
+    "**/karma.conf.js": true,
+    "**/tslint.json": true,
+    "**/.editorconfig": true,
+    "**/browserslist": true,
+    "karma.conf.js": true,
+    "protractor.conf.js": true,
+    "tslint.json": true,
+    "typings.json": true
+  }
+}

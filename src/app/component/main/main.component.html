@@ -1,0 +1,121 @@
+<mat-sidenav-container id="session" class="example-container">      
+  <mat-sidenav #sidenav mode="side" [(opened)]="cacheService.SidenavOpened"
+    class="sidenav" style="width: 280px;min-width: 280px;max-width: 280px;">
+    <div class="sidenav-container">
+      
+      <div *ngIf="userType=='Media Server'" class="sidenav-main">
+        
+          <div class="video-list" *ngFor="let video of videos">
+              <video width="100%" height="auto" (click)="changeMainVideo(video)"
+                [src]="video.video" [type]="video.type">
+                Your browser does not support the video tag.
+              </video>
+              <strong (click)="changeMainVideo(video)">{{video.name}}</strong>
+              <div class="video-preview-subtitle">
+                <small>{{video.category}}</small>
+                <div>上課</div>
+              </div>
+              <div class="video-preview-subtitle">
+                <small>{{video.category}}</small>
+                <div (click)=changeMainVideo(video)>Stream</div>
+              </div>
+          </div>
+      </div>
+      <div class="sidenav-info">
+        <div class="title-gradient">
+          <div class="flex-init-100">
+            <label>系統設定</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    </mat-sidenav>
+    <mat-sidenav opened mode="side" position="end"
+      style="width: 350px;min-width: 350px;max-width: 350px;">
+      <div class="flex-container">
+        <div class="flex-1 medal-section">
+          <div class="medal">
+            <img src="assets/medal1.png" alt="專注獎章"
+              matTooltip="透過觀看課程影片，並在撥放時領取課程試題取得"
+              matTooltipPosition="below">
+            <strong>專注獎章</strong>
+            <small class="medal-alarm">{{cdate | date: 'yyyy-MM-dd' }}</small>
+            <small class="medal-info">透過觀看課程影片，並在撥放時領取課程試題取得</small>
+          </div>
+        </div>
+        <div class="flex-1 medal-section">
+          <div class="medal">
+            <img src="assets/medal2.png" style="opacity:.3;" alt="試煉獎章"
+              matTooltip="透過學習該課程後作答試題並且分數及格取得"
+              matTooltipPosition="below">
+            <strong>試煉獎章</strong>
+            <small class="medal-alarm">未獲得</small>
+            <small class="medal-info">透過學習該課程後作答試題並且分數及格取得</small>
+          </div>
+        </div>
+      </div>
+      <div class="flex-col-container">
+        <div class="flex-alc-container" style="width: 100%;  height: 50px;">
+          <div class="flex-init-50">
+            <div class="quest-hint">
+              <div class="timer-hint">{{sec}}</div>
+            </div>
+          </div>
+          <div class="flex-1">限時題目</div>
+        </div>
+      </div>
+    </mat-sidenav>
+
+  <mat-sidenav-content>
+
+    <!--label>Please select user type</label>
+    <select id="userType" (change)=setUserType($event.target)>
+      <option *ngFor="let userType of userTypesList" [value]=userType.type>{{userType.type}}</option>
+    </select-->
+    <div id="main-video-container" class="main-container">
+      
+      <app-video-stream [userType]="userType"></app-video-stream>
+
+      <div class="video-conspectus">
+        <p class="main-title">{{subject.name}}</p>
+        <div class="flex-btw-container">
+          <div class="flex-1">
+            <label class="sub-title">{{subject.category}}</label>
+          </div>
+          <div class="flex-1 flex-arc-container">
+            <label class="sub-title">{{subject.category}}</label>
+          </div>
+        </div>
+      </div>
+      <!--angular2-multiselect  *ngIf="userType=='Media Server'"  name="dropdown-{{user.id}}" [data]="dropdownList" [(ngModel)]="selectedItems[user.id]" 
+        [settings]="dropdownSettings" 
+        (onSelect)="onItemSelect($event, user.id)" 
+        (onDeSelect)="OnItemDeSelect($event,user.id)"
+        (onSelectAll)="onSelectAll($event)"
+        (onDeSelectAll)="onDeSelectAll($event)" disabled>
+      </angular2-multiselect-->
+      <div style="position: relative;">        
+         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+          <ng-container matColumnDef="position">
+             <th mat-header-cell *matHeaderCellDef> No. </th>
+             <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+           </ng-container>
+           <ng-container matColumnDef="name">
+             <th mat-header-cell *matHeaderCellDef> Name </th>
+             <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+           </ng-container>
+           <ng-container matColumnDef="weight">
+             <th mat-header-cell *matHeaderCellDef> Weight </th>
+             <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+           </ng-container>
+           <ng-container matColumnDef="symbol">
+             <th mat-header-cell *matHeaderCellDef> Symbol </th>
+             <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+           </ng-container>        
+           <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+         </table>          
+       </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
